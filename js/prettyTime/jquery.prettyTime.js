@@ -1,16 +1,16 @@
-(function($) {
+(($)=> {
     $.fn.prettyTime = function() {
         return this.each(function() {
-            var $this = $(this);
+            const $this = $(this);
             $this.text(minutesToHours($this.attr("data-time")));
         });
     };
-    function minutesToHours(minutes) {
-        var returnString;
-        var hours = Math.floor(minutes / 60);
-        var minutes = minutes % 60;
-        var hoursString = NumberToWord(hours);
-        var minutesString = NumberToWord(minutes);
+    const minutesToHours = minutes => {
+        let returnString;
+        const hours = Math.floor(minutes / 60);
+        minutes = minutes % 60;
+        const hoursString = NumberToWord(hours);
+        const minutesString = NumberToWord(minutes);
         if (hours > 0) {
             if (minutes > 0) {
                 switch (minutes) {
@@ -68,11 +68,11 @@
         }
         return returnString;
     }
-    function NumberToWord(num){
-        var returnValue;
-        var units = ["","one","two","three","four","five","six","seven","eight","nine"];
-        var teens = ["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
-        var tens = ["","","twenty","thirty","forty","fifty"];
+    const NumberToWord = num => {
+        let returnValue;
+        const units = ["","one","two","three","four","five","six","seven","eight","nine"];
+        const teens = ["ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+        const tens = ["","","twenty","thirty","forty","fifty"];
         if (num % 1 === 0){
             if(num < 20){
                 if(num < 10){
